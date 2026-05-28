@@ -1,5 +1,4 @@
 # Part one
-
 import turtle
 import time
 import random
@@ -73,21 +72,26 @@ wn.onkeypress(go_left, "Left")
 wn.onkeypress(go_right, "Right")
 
 
- # main game loop
+# main game loop
 while True:
     wn.update()
 
+    # update bounds dynamically every loop
+    screenSize = turtle.getscreen()
+    halfWidth = int(screenSize.window_width()/2)
+    halfHeight = int(screenSize.window_height()/2)
+
     # b a hag dfh aif ga ah!
-    if head.xcor()>390 or head.xcor()<-390 or head.ycor()>290 or head.ycor()<-290:
+    if head.xcor()>halfWidth-25 or head.xcor()<-halfWidth+25 or head.ycor()>halfHeight-25 or head.ycor()<-halfHeight+25:
         time.sleep(1)
         head.goto(0, 0)
         head.direction = "stop"
 
     if head.distance(food) < 20:
-        x1 = random.randint(-390,390)
-        y1 = random.randint(-300,300)
+        x1 = random.randint(-halfWidth+25, halfWidth-25)
+        y1 = random.randint(-halfHeight+25, halfHeight-25)
         food.goto(x1,y1)
-        new_segment = turtle .Turtle()
+        new_segment = turtle.Turtle()
         new_segment.speed(0)
         new_segment.shape("square")
         new_segment.color("grey")
@@ -106,10 +110,7 @@ while True:
         y = head.ycor()
         segments[0].goto(x, y)
 
-
-
     move()
-
 
     time.sleep(delay)
 
