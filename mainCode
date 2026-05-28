@@ -1,4 +1,5 @@
 # Part one
+import tkinter
 import turtle
 import time
 import random
@@ -6,11 +7,16 @@ import random
 delay = 0.1
 
 #Set up the screen
+
+root = tkinter.Tk()
+root.withdraw()
+x, y = root.winfo_screenwidth(), root.winfo_screenheight()
+
 wn = turtle.Screen()
 wn.title("Snake game by Nate")
 wn.bgcolor("black")
 wn.bgcolor("green")
-wn.setup(width=1855, height=855)
+wn.setup(width=x, height=y)
 wn.tracer(0)
 
 # Snake head
