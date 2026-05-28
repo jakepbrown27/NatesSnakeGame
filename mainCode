@@ -11,7 +11,7 @@ wn = turtle.Screen()
 wn.title("Snake game by Nate")
 wn.bgcolor("black")
 wn.bgcolor("green")
-wn.setup(width=1875, height=855)
+wn.setup(width=1000, height=855)
 wn.tracer(0)
 
 # Snake head
